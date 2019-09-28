@@ -1,5 +1,5 @@
 // Source
-solution_list = require('../source/018.js')
+solution_list = require('../source/018.js');
 
 /* Problem Text
 Given an array of integers and a number k, where 1 <= k <= length of the array, compute the
@@ -17,30 +17,30 @@ For example, given array = [10, 5, 2, 7, 8, 7] and k = 3, we should get: [10, 7,
 */
 
 describe(`Problem 018`, function () {
-  describe.each(solution_list)
-  ('Solution %#', function ( solution ) {
-    describe.each([
-      [[10, 5, 2, 7, 8, 7]],
-    ])('arr = %p', function ( arr ) {
-      test.each([
-        [3, [10, 7, 8, 8]],
-      ])('for k = %p, expect %p', function ( k, expected ) {
-        expect(solution(arr, k)).toEqual(expected)
-      })
-    })
-    describe.each([
-      [[1, 2, 3, 4, 3, 5]],
-    ])('arr = %p', function ( arr ) {
-      test.each([
-        [2, [2, 3, 4, 4, 5]],
-        [3, [3, 4, 4, 5]],
-        [4, [4, 4, 5]],
-        [5, [4, 5]],
-        [6, [5]],
-        [7, []],
-      ])('for k = %p, expect %p', function ( k, expected ) {
-        expect(solution(arr, k)).toEqual(expected)
-      })
-    })
-  })
-})
+    describe.each(solution_list)
+    ('Solution %#', function (solution) {
+        describe.each([
+            [[10, 5, 2, 7, 8, 7]],
+        ])('arr = %p', function (arr) {
+            test.each([
+                [3, [10, 7, 8, 8]],
+            ])('for k = %p, expect %p', function (k, expected) {
+                expect(solution(arr, k)).toEqual(expected);
+            });
+        });
+        describe.each([
+            [[1, 2, 3, 4, 3, 5]],
+        ])('arr = %p', function (arr) {
+            test.each([
+                [2, [2, 3, 4, 4, 5]],
+                [3, [3, 4, 4, 5]],
+                [4, [4, 4, 5]],
+                [5, [4, 5]],
+                [6, [5]],
+                [7, []],
+            ])('for k = %p, expect %p', function (k, expected) {
+                expect(solution(arr, k)).toEqual(expected);
+            });
+        });
+    });
+});

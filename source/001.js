@@ -4,9 +4,9 @@ Given a list of numbers and a number K, return whether any two numbers from the 
 Can you do this in one pass?
 */
 
-let solutions = []
+let solutions = [];
 
-module.exports = solutions
+module.exports = solutions;
 
 /*
 Solution #1
@@ -21,19 +21,19 @@ Solution #1
 */
 
 solutions.push(
-  function ( arr, k ) {
-    let table = new Array(k)
-    
-    for (n of arr) {
-      let complement = k - n
-      if (table[complement] === true)
-        return true
-      table[n] = true
-    }
-    
-    return false
-  },
-)
+    function (arr, k) {
+        let table = new Array(k);
+
+        for (let n of arr) {
+            let complement = k - n;
+            if (table[complement] === true)
+                return true;
+            table[n] = true;
+        }
+
+        return false;
+    },
+);
 
 /*
 Solution #2
@@ -45,21 +45,21 @@ Solution #2
 */
 
 solutions.push(
-  function ( arr, k ) {
-    
-    for (i in arr) {
-      for (j in arr) {
-        if (i !== j) {
-          let complement = k - arr[i]
-          if (arr[j] === complement)
-            return true
+    function (arr, k) {
+
+        for (let i in arr) {
+            for (let j in arr) {
+                if (i !== j) {
+                    let complement = k - arr[i];
+                    if (arr[j] === complement)
+                        return true;
+                }
+            }
         }
-      }
-    }
-    
-    return false
-  },
-)
+
+        return false;
+    },
+);
 
 
 /*
@@ -85,29 +85,29 @@ Solution #3
 Brandon's Solution
 */
 solutions.push(
-  function ( listOfNumbers, K ) {
-    let addendOfK1
-    let addendOfK2
-    let addUpToK = false
-    
-    for (let i = 0; i < listOfNumbers.length; i++) {
-      if (listOfNumbers[i] <= K) {
-        
-        addendOfK1 = listOfNumbers[i]
-        
-        for (let j = 0; j < listOfNumbers.length - 1; j++) {
-          if (j !== i) {
-            if (listOfNumbers[j] <= K) {
-              addendOfK2 = listOfNumbers[j]
-              
-              if (K === addendOfK1 + addendOfK2) {
-                addUpToK = true
-              }
+    function (listOfNumbers, K) {
+        let addendOfK1;
+        let addendOfK2;
+        let addUpToK = false;
+
+        for (let i = 0; i < listOfNumbers.length; i++) {
+            if (listOfNumbers[i] <= K) {
+
+                addendOfK1 = listOfNumbers[i];
+
+                for (let j = 0; j < listOfNumbers.length - 1; j++) {
+                    if (j !== i) {
+                        if (listOfNumbers[j] <= K) {
+                            addendOfK2 = listOfNumbers[j];
+
+                            if (K === addendOfK1 + addendOfK2) {
+                                addUpToK = true;
+                            }
+                        }
+                    }
+                }
             }
-          }
         }
-      }
-    }
-    return addUpToK
-  },
-)
+        return addUpToK;
+    },
+);
