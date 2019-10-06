@@ -24,7 +24,7 @@ solutions.push(
   function ( arr, k ) {
     let table = new Array(k)
     
-    for (n of arr) {
+    for (let n of arr) {
       let complement = k - n
       if (table[complement] === true)
         return true
@@ -47,8 +47,8 @@ Solution #2
 solutions.push(
   function ( arr, k ) {
     
-    for (i in arr) {
-      for (j in arr) {
+    for (let i in arr) {
+      for (let j in arr) {
         if (i !== j) {
           let complement = k - arr[i]
           if (arr[j] === complement)
@@ -70,7 +70,7 @@ Solution #3
   ..
 
   Time  O(n*log2(n)) - linearithmic time, decently quick
-  Space O(n)       - linear space, only enough as necessary
+  Space O(n)         - linear space, only enough as necessary
   One Pass
   Optimal Choice if Logarithmic time is allowed
 

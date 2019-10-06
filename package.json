@@ -1,7 +1,6 @@
 {
   "name": "daily-coding-problems",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest --verbose --collect-coverage"
@@ -11,5 +10,18 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "^24.9.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericchase/daily-coding-problems.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ericchase/daily-coding-problems/issues"
+  },
+  "homepage": "https://github.com/ericchase/daily-coding-problems#readme",
+  "description": ""
 }
