@@ -13,9 +13,9 @@ For example, given array = [10, 5, 2, 7, 8, 7] and k = 3, we should get: [10, 7,
 8 = max(7, 8, 7)
 */
 
-let solutions = []
+let solutions = [];
 
-module.exports = solutions
+module.exports = solutions;
 
 /*
 Solution #1
@@ -33,42 +33,42 @@ Solution #1
 */
 
 solutions.push(
-  function ( arr, k ) {
-    if (k > arr.length)
-      return []
-    
-    let ops_arr = 0
-    let ops_other = 0
-    
-    let comparators = new Array(k)
-    let output = []
-    
-    for (let i = 0; i < k; ++i) {
-      ops_arr++
-      comparators[i] = arr[i]
-      for (let j = 0; j < i; ++j) {
-        ops_other++
-        comparators[j] = Math.max(comparators[j], arr[i])
-      }
-    }
-    
-    for (let i = k; i < arr.length; ++i) {
-      ops_arr++
-      output.push(comparators[i % k])
-      comparators[i % k] = arr[i]
-      for (let j = i + 1; j < i + k; ++j) {
-        ops_other++
-        let n = j % k
-        comparators[n] = Math.max(comparators[n], arr[i])
-      }
-    }
-    output.push(comparators[arr.length % k])
-    
-    // console.log('\t\tops:', ops_arr, ops_other, `${(ops_arr + ops_other) / arr.length}n`)
-    
-    return output
-  },
-)
+    function (arr, k) {
+        if (k > arr.length)
+            return [];
+
+        let ops_arr = 0;
+        let ops_other = 0;
+
+        let comparators = new Array(k);
+        let output = [];
+
+        for (let i = 0; i < k; ++i) {
+            ops_arr++;
+            comparators[i] = arr[i];
+            for (let j = 0; j < i; ++j) {
+                ops_other++;
+                comparators[j] = Math.max(comparators[j], arr[i]);
+            }
+        }
+
+        for (let i = k; i < arr.length; ++i) {
+            ops_arr++;
+            output.push(comparators[i % k]);
+            comparators[i % k] = arr[i];
+            for (let j = i + 1; j < i + k; ++j) {
+                ops_other++;
+                let n = j % k;
+                comparators[n] = Math.max(comparators[n], arr[i]);
+            }
+        }
+        output.push(comparators[arr.length % k]);
+
+        // console.log('\t\tops:', ops_arr, ops_other, `${(ops_arr + ops_other) / arr.length}n`)
+
+        return output;
+    },
+);
 
 /*
 Solution #2
@@ -83,49 +83,49 @@ Solution #2
 */
 
 solutions.push(
-  function ( arr, k ) {
-    if (k > arr.length)
-      return []
-    
-    let ops_arr = 0
-    let ops_other = 0
-    
-    let min_k = Math.min(k, arr.length - k + 1)
-    let comparators = new Array(min_k)
-    let output = []
-    
-    for (let i = 0; i < min_k; ++i) {
-      ops_arr++
-      comparators[i] = arr[i]
-      for (let j = 0; j < i; ++j) {
-        ops_other++
-        comparators[j] = Math.max(comparators[j], arr[i])
-      }
-    }
-    
-    for (let i = min_k; i < k; ++i) {
-      ops_arr++
-      for (let j = i; j < i + min_k; ++j) {
-        ops_other++
-        let n = j % min_k
-        comparators[n] = Math.max(comparators[n], arr[i])
-      }
-    }
-    
-    for (let i = k; i < arr.length; ++i) {
-      ops_arr++
-      output.push(comparators[i % min_k])
-      comparators[i % min_k] = arr[i]
-      for (let j = i + 1; j < i + min_k; ++j) {
-        ops_other++
-        let n = j % min_k
-        comparators[n] = Math.max(comparators[n], arr[i])
-      }
-    }
-    output.push(comparators[arr.length % min_k])
-    
-    // console.log('\t\tops:', ops_arr, ops_other, `${(ops_arr + ops_other) / arr.length}n`)
-    
-    return output
-  },
-)
+    function (arr, k) {
+        if (k > arr.length)
+            return [];
+
+        let ops_arr = 0;
+        let ops_other = 0;
+
+        let min_k = Math.min(k, arr.length - k + 1);
+        let comparators = new Array(min_k);
+        let output = [];
+
+        for (let i = 0; i < min_k; ++i) {
+            ops_arr++;
+            comparators[i] = arr[i];
+            for (let j = 0; j < i; ++j) {
+                ops_other++;
+                comparators[j] = Math.max(comparators[j], arr[i]);
+            }
+        }
+
+        for (let i = min_k; i < k; ++i) {
+            ops_arr++;
+            for (let j = i; j < i + min_k; ++j) {
+                ops_other++;
+                let n = j % min_k;
+                comparators[n] = Math.max(comparators[n], arr[i]);
+            }
+        }
+
+        for (let i = k; i < arr.length; ++i) {
+            ops_arr++;
+            output.push(comparators[i % min_k]);
+            comparators[i % min_k] = arr[i];
+            for (let j = i + 1; j < i + min_k; ++j) {
+                ops_other++;
+                let n = j % min_k;
+                comparators[n] = Math.max(comparators[n], arr[i]);
+            }
+        }
+        output.push(comparators[arr.length % min_k]);
+
+        // console.log('\t\tops:', ops_arr, ops_other, `${(ops_arr + ops_other) / arr.length}n`)
+
+        return output;
+    },
+);
