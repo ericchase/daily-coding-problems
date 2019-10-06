@@ -1,5 +1,5 @@
 // Source
-solution_list = require('../source/028.js');
+solution_list = require('../source/028.js')
 
 /* Problem Text
 Write an algorithm to justify text. Given a sequence of words and an integer line length k, return a list of strings
@@ -22,13 +22,13 @@ For example, given the list of words ["the", "quick", "brown", "fox", "jumps", "
 */
 
 describe(`Problem 028`, function () {
-    describe.each(solution_list)
-    ('Solution %#', function (solution) {
-        test.each([
-            [['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog'],
-                ['the  quick brown', 'fox  jumps  over', 'the   lazy   dog']],
-        ])('for k = %p, expect %p', function (arr, expected) {
-            expect(solution(arr)).toEqual(expected);
-        });
-    });
-});
+  describe.each(solution_list)
+  ('Solution %#', function ( solution ) {
+    test.each([
+      [['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog'],
+        ['the  quick brown', 'fox  jumps  over', 'the   lazy   dog']],
+    ])('for k = %p, expect %p', function ( arr, expected ) {
+      expect(solution(arr)).toEqual(expected)
+    })
+  })
+})

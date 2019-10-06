@@ -8,13 +8,13 @@ For example, if our input was [1, 2, 3, 4, 5], the expected output would be [120
 Follow-up: what if you can't use division?
 */
 
-let solutions = [];
+let solutions = []
 
-module.exports = solutions;
+module.exports = solutions
 
 solutions.push(
-    function (arr) {
-        let product = arr.reduce((product, value) => product * value, 1);
-        return arr.map(value => product / value);
-    }
-);
+  function ( arr ) {
+    let product = arr.reduce(( product, value ) => product * value, 1)
+    return arr.map(value => product / value)
+  },
+)
