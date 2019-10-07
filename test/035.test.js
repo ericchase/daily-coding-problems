@@ -16,6 +16,7 @@ describe(`Problem 035`, function () {
   describe.each(solution_list)
   ('Solution %#', function ( solution ) {
     test.each([
+      [0, []],
       [[], []],
       [['R'], ['R']],
       [['G', 'R'], ['R', 'G']],

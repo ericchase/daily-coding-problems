@@ -25,10 +25,10 @@ describe(`Problem 028`, function () {
   describe.each(solution_list)
   ('Solution %#', function ( solution ) {
     test.each([
-      [['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog'],
+      [['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog'], 16,
         ['the  quick brown', 'fox  jumps  over', 'the   lazy   dog']],
-    ])('for k = %p, expect %p', function ( arr, expected ) {
-      expect(solution(arr)).toEqual(expected)
+    ])('for arr = %p and k = %p, expect %p', function ( arr, k, expected ) {
+      expect(solution(arr, k)).toEqual(expected)
     })
   })
 })
